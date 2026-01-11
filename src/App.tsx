@@ -20,6 +20,8 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Profile from "./pages/Profile";
 import BulkUpload from "@/pages/BulkUpload.tsx";
+// Import the new Legal Pages
+import { TermsPage, PrivacyPage, RefundPage, ShippingPage } from "./pages/Legal";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +41,7 @@ const App = () => (
 
                         {/* --- UPDATED CATEGORY ROUTES --- */}
 
-                        {/* 1. 3D Printers: FDM, SLA, Metal, 3D Pen, Others */}
+                        {/* 1. 3D Printers */}
                         <Route path="/printers" element={
                             <CategoryPage
                                 category="3d_printer"
@@ -49,7 +51,7 @@ const App = () => (
                             />
                         } />
 
-                        {/* 2. 3D Printables: Search only */}
+                        {/* 2. 3D Printables */}
                         <Route path="/printables" element={
                             <CategoryPage
                                 category="3dprintables"
@@ -59,7 +61,7 @@ const App = () => (
                             />
                         } />
 
-                        {/* 3. Filaments: ABS, PETG, PLA, Carbon Fiber, Nylon Fiber, Others */}
+                        {/* 3. Filaments */}
                         <Route path="/filaments" element={
                             <CategoryPage
                                 category="filament"
@@ -69,7 +71,7 @@ const App = () => (
                             />
                         } />
 
-                        {/* 4. Accessories: Search Only */}
+                        {/* 4. Accessories */}
                         <Route path="/accessories" element={
                             <CategoryPage
                                 category="accessory"
@@ -79,7 +81,7 @@ const App = () => (
                             />
                         } />
 
-                        {/* 5. Spare Parts: Search Only */}
+                        {/* 5. Spare Parts */}
                         <Route path="/spare-parts" element={
                             <CategoryPage
                                 category="spare_part"
@@ -89,7 +91,7 @@ const App = () => (
                             />
                         } />
 
-                        {/* 6. Resins: Standard, Water-Washable, Tough, Others */}
+                        {/* 6. Resins */}
                         <Route path="/resins" element={
                             <CategoryPage
                                 category="resin"
@@ -109,9 +111,17 @@ const App = () => (
                         <Route path="/forgot-password" element={<ForgotPassword />} />
                         <Route path="/reset-password" element={<ResetPassword />} />
                         <Route path="/admin" element={<AdminDashboard />} />
-                        <Route path="/bulk-upload" element={<BulkUpload />} /> {/* ✅ New Route */}
-                        <Route path="*" element={<NotFound />} />
+                        <Route path="/bulk-upload" element={<BulkUpload />} />
                         <Route path="/profile" element={<Profile />} />
+
+                        {/* --- LEGAL PAGES --- */}
+                        <Route path="/terms-and-conditions" element={<TermsPage />} />
+                        <Route path="/privacy-policy" element={<PrivacyPage />} />
+                        <Route path="/refund-policy" element={<RefundPage />} />
+                        <Route path="/shipping-policy" element={<ShippingPage />} />
+
+                        {/* 404 Not Found (Must be last) */}
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
             </CartProvider>
